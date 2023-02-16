@@ -13,7 +13,7 @@ function Title (props){
 
 function Button (props){
     return(
-        <button className='buttonPlayer'>{props.children}</button>
+        <button className='buttonPlayer' onClick={props.onClick}>{props.children}</button>
     )
 }
 
