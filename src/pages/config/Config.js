@@ -1,25 +1,26 @@
-import './Config.css';
 import { Link } from 'react-router-dom';
+
+import './Config.css';
+
+import { Title, Button } from '../../components';
+import '../../Styles.css';
 
 function Config() {
     return (
       <div className="App">
         <div className='start'>
-          <div class='titleBox'>
-            <h1 class='title title1'>Jogo dos Palitos</h1>
-            <h1 class='title title2'>Jogo dos Palitos</h1>
-          </div>
+          <Title/>
           <form>
             <input className='inputLines' type='text' placeholder="Quantas linhas vão ser?"/>
           </form>
           <Link to="/">
-            <button className='buttonPlayer'>Voltar</button>
+            <Button>Voltar</Button>
           </Link>
           
-          <button className='buttonPlayer'>Tutorial</button>
+          <Button>Tutorial</Button>
           
           <Link to="/game">
-            <button className='buttonPlayer'>Jogar</button>
+            <Button>Jogar</Button>
           </Link>
         </div>
       </div>

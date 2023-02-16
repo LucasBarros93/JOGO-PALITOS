@@ -1,17 +1,18 @@
-import './start.css';
 import { Link } from 'react-router-dom';
+
+import './start.css';
+
+import { Title, Button } from '../../components';
+import '../../Styles.css'
 
 function Start() {
   return (
     <div className="App">
       <div className='start'>
-        <div class='titleBox'>
-          <h1 class='title title1'>Jogo dos Palitos</h1>
-          <h1 class='title title2'>Jogo dos Palitos</h1>
-        </div>
-        <button className='buttonPlayer'>Singleplayer</button>
+        <Title/>
+        <Button>Singleplayer</Button>
         <Link to="/config">
-          <button className='buttonPlayer'>Multiplayer</button>
+          <Button>Multiplayer</Button>
         </Link>
       </div>
     </div>
