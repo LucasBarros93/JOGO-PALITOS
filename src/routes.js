@@ -8,9 +8,9 @@ const paths = () =>{
     return(
         <BrowserRouter>
             <Routes>
-                <Route path = '/' element={<Start />}/>
-                <Route path = '/config' element={<Config />}/>
-                <Route path = '/game' element={<Game />}/>
+                <Route exact path = '/' element={<Start />}/>
+                <Route exact path = '/config' element={<Config/>}/>
+                <Route exact path = '/game' element={<Game />} />
             </Routes>
         </BrowserRouter>
     )

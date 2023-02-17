@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import './game.css'
 
@@ -6,16 +7,15 @@ import { Title, Button } from '../../components';
 import '../../Styles.css'
 
 
-function Game() {
-  const lines = 5
-
+function Game(props) {
+ 
   function createLines(lines){
     const tab =[]
     
     for (let i = 1; i <= lines; i++) {
       var line = []
       for (let j = 1; j <= i; j++) {
-        line.push(<button key={j} className='buttonGame'> ok </button>)
+        line.push(<button key={j} className='buttonGame'> | </button>)
       }
       tab.push(<div key={i}>{line}</div>)
     }
@@ -26,6 +26,7 @@ function Game() {
   const [player, setPlayer] = useState("Player 1")
   const pass = () => {player === 'Player 1' ? setPlayer("Player 2") : setPlayer("Player 1")}
 
+  const [searchParams] = useSearchParams()
 
   return (
     <div className="App">
@@ -33,7 +34,7 @@ function Game() {
         <Title/>
         <p>{player}</p>
 
-        {createLines(lines)}
+        {createLines(searchParams.get("id"))}
 
         <Button onClick={pass}>Passar</Button>
 

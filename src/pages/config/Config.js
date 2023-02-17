@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useNavigate, createSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
 import './Config.css';
@@ -6,12 +6,23 @@ import './Config.css';
 import { Title, Button } from '../../components';
 import '../../Styles.css';
 
-function Config() {
-  const [lines, setLines] = useState()
+function Config(props) {
 
-  function getLines(){
-    console.log(lines)
+  const navigate = useNavigate()
+  const gotoStart = () => {
+    navigate({pathname:"/"})
   }
+
+  const gotoGame = () => {
+    navigate({
+      pathname:"/game",
+      search: createSearchParams({
+        id: lines
+      }).toString()
+    })
+  }
+
+  const [lines, setLines] = useState()
 
   return (
     <div className="App">
@@ -23,19 +34,17 @@ function Config() {
           placeholder="Quantas linhas vão ser?" 
           onChange={(e) => setLines(e.target.value)}/>
 
-        <Link to="/">
-          <Button>Voltar</Button>
-        </Link>
+        <Button onClick={gotoStart}>Voltar</Button>
         
         <Button>Tutorial</Button>
         
-        <Link to="/game">
-          <Button onClick={getLines}>Jogar</Button>
-        </Link>
+        <Button onClick={gotoGame}>Jogar</Button>
       </div>
     </div>
     );
+
   }
 
 
   export default Config;
+  
